@@ -1,0 +1,459 @@
+@charset "UTF-8";
+
+/*****************************************************
+* Summary
+******************************************************/
+.summary_wrap {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 101;
+}
+
+.summary_wrap .summary_top {
+    width: 100%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.summary_wrap .summary_top_cont {
+    width: 1200px;
+    margin: 0 auto;
+    height: 60px;
+    position: relative;
+}
+
+.summary_wrap .summary_top_cont .price_wrap {
+    padding: 15px 0;
+    height: 33px;
+}
+
+.summary_wrap .summary_top_cont .price_wrap > span {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.summary_wrap .summary_top_cont .price_wrap .total {
+    line-height: 33px;
+    margin-right: 25px;
+    font-size: 18px;
+}
+
+.summary_wrap .summary_top_cont .price_wrap .unit {
+    margin-right: 5px;
+    font-size: 14px;
+    color: #d22c26;
+    line-height: 45px;
+}
+
+.summary_wrap .summary_top_cont .price_wrap .price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #d22c26;
+}
+
+.summary_wrap .summary_top_cont .btn_large {
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 17px 50px;
+}
+
+.summary_wrap .summary_top_cont .btn_large.prev {
+    background-image: url(//contents-image.twayair.com/homepage/images/ico/ico_prev_arrow.png);
+    background-repeat: no-repeat;
+    background-size: 9px 16px;
+    background-position: left 20px center;
+}
+
+.summary_wrap .summary_top_cont .btn_large.next {
+    background-image: url(//contents-image.twayair.com/homepage/images/ico/ico_next_arrow.png);
+    background-repeat: no-repeat;
+    background-size: 9px 16px;
+    background-position: right 30px center;
+    position: relative;
+    left : 1020px;
+    bottom: 33px;
+}
+
+.summary_wrap.open:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+header {
+	height: 123px;
+}
+
+section {
+	width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 100px;
+	
+}
+
+#top {
+	height: 170px;
+	background-color: #6d6e71;
+}
+
+#topWrap {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	color: white;
+}
+
+#top1, #top2, #top3, #top4 {
+	width: 278px;
+	height: 170px;
+	float: left;
+}
+
+#noti {
+	min-height: 90px;
+	background-color: #f3f4f6;
+	padding-bottom: 22px;
+	-webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 0.45px;
+}
+
+#notiWrap {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	vertical-align: middle;
+	padding-top: 25px;
+}
+
+#title {
+	padding: 60px 0;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 40px;
+}
+
+#tmsg {
+	padding: 25px 0;
+	border-top: gray solid 1px;
+	border-bottom: gray solid 1px;
+	margin-bottom: 30px;
+	-webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 0.45px;
+}
+
+/*  */
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover,
+	input[type="number"]:hover {
+	border: 1px solid #d60815;
+	background-color: #fff;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"]
+	{
+	height: 44px;
+	padding: 0 15px;
+	margin-right: 10px;
+	border: 1px solid #f3f3f3;
+	border-bottom: 1px solid #ddd;
+	color: #222;
+	background-color: #f3f3f3;
+	font-size: 16px;
+	line-height: 40px;
+}
+
+input[type="checkbox"], input[type="radio"]{
+	display: none;
+}
+
+input[type="radio"] + label {
+    height: 20px;
+    padding: 0 30px;
+    background: url(/images/common/bg_radio.png) no-repeat;
+    font-size: 16px;
+    color: #222;
+    vertical-align: middle;
+    line-height: 18px;
+}
+
+input[type="radio"]:checked + label {
+    background-position: 0 -20px;
+}
+
+select:hover {
+	border: 1px solid #d60815;
+	background-color: #fff;
+}
+
+select {
+	height: 46px;
+	padding: 0 45px 0 15px;
+	margin-right: 10px;
+	border: 1px solid #f3f3f3;
+	border-bottom: 1px solid #ddd;
+	background: #f3f3f3 url('/images/common/bg_select_arrow.png') no-repeat
+		right 13px top 50%;
+	background-size: 12px 8px;
+	color: #222;
+	vertical-align: middle;
+	-webkit-appearance:none;
+}
+
+.bth {
+	padding: 25px 25px;
+	border-bottom: 1px solid #ddd;
+	background-color: #6d6e70;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	font-weight: normal;
+	width: 180px;
+}
+
+.btb {
+	padding: 15px 25px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+
+/* checkbox */
+input[type="checkbox"]:checked + label {
+    background: url(/images/common/bg_checkbox_check.png) no-repeat;
+}
+
+input[type="checkbox"] + label {
+    min-height: 20px;
+    padding: 0 40px 0 30px;
+    background: url(/images/common/bg_checkbox_default.png) no-repeat;
+    font-size: 16px;
+    color: #222;
+    vertical-align: middle;
+    line-height: 18px;
+}
+/* checkbox 끝  */
+
+
+#btn {
+	cursor: pointer;
+	width: 110px;
+	height: 50px;
+	background-color: #d60815;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	position: relative;
+    left: 1078px;
+}
+
+.gray_box {
+	cursor:default;
+    position: relative;
+    margin-top: 80px;
+    padding: 40px;
+    background-color: #f7f7f7;
+}
+
+.gray_box h5 {
+    margin-bottom: 15px;
+    font-size: 23px;
+    font-weight: normal;
+    color: #000;
+}
+
+.gray_box .list_type2 > li {
+    color: #444;
+    font-size: 15px;
+    cursor:default;
+}
+
+.list_type2 > li {
+    padding-left: 13px;
+    text-indent: -13px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    color: #222;
+    text-align: left;
+    cursor:default;
+}
+
+.gray_box .list_type2 > li:before {
+    width: 3px;
+    height: 3px;
+    cursor:default;
+}
+
+.list_type2 > li:before {
+    display: inline-block;
+    content: '';
+    margin: -4px 10px 0 0;
+    width: 2px;
+    height: 2px;
+    background: #555;
+    vertical-align: middle;
+    cursor:default;
+}
+
+.header .header_inner {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.header .header_inner:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header .header_inner > a {
+    float: left;
+}
+
+.header .header_inner .logo_favor {
+    margin-top: 14px;
+    display: inline-block;
+}
+
+.header .header_inner .logo_favor img {
+    height: 30px;
+}
+
+.header .header_inner .logo_favor:before {
+    display: inline-block;
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin: 0 10px;
+    vertical-align: middle;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_x.png") no-repeat -4px -4px;
+}
+
+.header.dutyfree .header_inner {
+    height: 55px;
+}
+
+.header .util_wrap {
+    float: right;
+    padding-top: 16px;
+}
+
+.header .util_wrap .sel_lang_wrap {
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header .util_wrap .sel_lang_wrap > ul > li {
+    float: left;
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap > ul > li:first-child:after {
+    display: inline-block;
+    content: "";
+    position: relative;
+    top: 2px;
+    margin: 0 20px 0 15px;
+    width: 1px;
+    height: 12px;
+    background-color: #7f7f7f;
+}
+
+.header .util_wrap .sel_lang_wrap > ul > li a {
+    display: inline-block;
+    padding-right: 14px;
+    font-size: 14px;
+    color: #4d4d4d;
+    background: url("//contents-image.twayair.com/homepage/images/common/arr_txt_sel.png") no-repeat 99.9% 50%;
+}
+
+.header .util_wrap .sel_lang_wrap.ta {
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap.ta:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header .util_wrap .sel_lang_wrap.ta > ul > li {
+    float: left;
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap.ta > ul > li:first-child:after {
+    display: inline-block;
+    content: "";
+    position: relative;
+    top: 0;
+    margin: 0px;
+    width: 0;
+    height: 0;
+    background-color: #fff;
+}
+
+.header .util_wrap .sel_lang_wrap.ta > ul > li a {
+    display: inline-block;
+    padding-right: 14px;
+    font-size: 14px;
+    color: #4d4d4d;
+    background: url("//contents-image.twayair.com/homepage/images/common/arr_txt_ta.png") no-repeat 100% 50%;
+}
+
+.header .util_wrap .util_menu {
+    float: right;
+    position: relative;
+    margin-top: 10px;
+}
+
+.header .util_wrap .util_menu a {
+    display: inline-block;
+    margin-right: 26px;
+    width: 26px;
+    height: 26px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+
+.header .util_wrap .util_menu a:last-child {
+    margin-right: 0;
+}
+
+.header .util_wrap .util_menu .btn_login {
+    width: 30px;
+    height: 30px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_top_login.png") no-repeat 100% 0;
+}
+
+.header .util_wrap .util_menu .btn_login.on {
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_top_login_on.png") no-repeat 100% 0;
+}
+
+.header .util_wrap .util_menu .btn_search {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_top_search.png");
+}
+
+.header .util_wrap .util_menu .btn_allmenu {
+    margin-right: 0;
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_top_allmenu.png");
+}
+
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="boardMapper">
+  <resultMap type="board" id="boardResultSet">
+	  	<result column="BOARD_NO" property="boardNo"/>
+	  	<result column="BOARD_TITLE" property="boardTitle"/>
+	  	<result column="BOARD_CONTENT" property="boardContent"/>
+	  	<result column="COUNT" property="count"/>
+	  	<result column="CREATE_DATE" property="createDate"/>
+	  	<result column="STATUS" property="status"/> 
+	  	<result column="USER_NO" property="userNo"/>   	
+	  	<result column="CATEGORY_NO" property="categoryNo"/>
+		<collection property="boardCategory" resultMap="boardCategory"></collection>
+  </resultMap>
+  
+  <resultMap type="com.kh.carrot.board.model.vo.BoardCategory" id="boardCategory">
+	  	<result column="CATEGORY_NAME" property="categoryName"/>
+	  	<result column="CATEGORY_NO" property="categoryNo"/>
+  </resultMap>
+	
+   <select id="selectList" parameterType="board" resultMap="boardResultSet">
+		SELECT B.BOARD_NO,
+			   C.CATEGORY_NAME,
+			   B.BOARD_TITLE,
+			   B.COUNT,
+			   B.CREATE_DATE
+		FROM BOARD B, BOARD_CATEGORY C
+		WHERE B.CATEGORY_NO = C.CATEGORY_NO
+		AND STATUS='Y'
+		ORDER BY CREATE_DATE DESC
+   </select>
+   
+   <update id="increaseCount">
+   		UPDATE BOARD
+   		SET COUNT = COUNT +1
+   		WHERE BOARD_NO = #{boardNo}
+   		AND STATUS = 'Y'
+   </update>
+   
+   <select id="detailBoard" resultMap="boardResultSet" parameterType="_int">
+   		SELECT BOARD_NO,
+			   CATEGORY_NAME,
+			   BOARD_TITLE,
+			   BOARD_CONTENT,
+			   COUNT,
+			   CREATE_DATE
+   		FROM BOARD B
+   		LEFT JOIN BOARD_CATEGORY USING(CATEGORY_NO)
+   		WHERE BOARD_NO = #{boardNo}
+   		AND STATUS = 'Y'
+   		ORDER BY CREATE_DATE DESC
+   </select>
+
+	<insert id="insertBoard">
+		INSERT INTO BOARD(BOARD_NO
+						 ,BOARD_TITLE
+						 ,BOARD_CONTENT
+						 ,USER_NO
+						 ,CATEGORY_NO)
+					VALUES(SEQ_BNO.NEXTVAL
+						  ,#{boardTitle}
+						  ,#{boardContent}
+						  ,1
+						  ,#{categoryNo}
+						  )
+	</insert>
+	<update id="deleteBoard">
+		 UPDATE BOARD		
+				SET STATUS = 'N'      
+		  WHERE BOARD_NO = ${boardNo}
+		  AND STATUS = 'Y'
+	</update>
+
+	
+</mapper>	

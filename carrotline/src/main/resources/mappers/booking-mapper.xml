@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bookingMapper">
+
+	<resultMap type="airport" id="airportResultSet">
+		<result column="AIRPORT_CODE" property="airportCode"/>
+		<result column="CONTINENT" property="continent"/>
+		<result column="CITY" property="city"/>
+		<result column="TIME_DIFFERENCE" property="timeDifference"/>
+	</resultMap>
+	
+	<!--  출발지 대륙별 공항리스트 조회  -->
+	<select id="selectDepCityList" parameterType="airport" resultMap="airportResultSet"> 
+		SELECT AIRPORT_CODE,
+				CITY 
+		FROM AIRPORT 
+		WHERE CONTINENT= #{continent} 
+	</select>
+	
+	<!--  도착지 대륙리스트 조회  -->
+	<select id="selectAbleCityList" parameterType="airport" resultMap="airportResultSet">
+		SELECT DISTINCT CONTINENT 
+		FROM AIRPORT 
+		WHERE CONTINENT NOT IN( SELECT continent 
+								FROM AIRPORT 
+								WHERE AIRPORT_CODE = #{airportCode}) 
+	</select>
+	
+	<!--  도착지 대륙별 공항리스트 조회  -->
+	<select id="selectArrCityList" parameterType="airport" resultMap="airportResultSet"> 
+		SELECT AIRPORT_CODE, CITY 
+		FROM AIRPORT 
+		WHERE CONTINENT = #{continent} 
+		AND AIRPORT_CODE IN (SELECT DISTINCT ARRIVAL_AIRPORT 
+							FROM ROUTE 
+							JOIN AIRPORT ON (DEPARTURE_AIRPORT=AIRPORT_CODE) 
+							WHERE DEPARTURE_AIRPORT = #{airportCode}) 
+	</select>
+	
+	<resultMap type="route" id="routeResultSet">
+		<result column="ROUTE_NO" property="routeNo"/>
+		<result column="FLIGHT_NAME" property="flightName"/>
+		<result column="DEPARTURE_TIME" property="departureTime"/>
+		<result column="ARRIVAL_TIME" property="arrivalTime"/>
+		<result column="FLIGHT_TIME" property="flightTime"/>
+		<result column="ROUTE_COST" property="routeCost"/>
+		<result column="MILEAGE" property="mileage"/>
+		<result column="PREMIUM_COST" property="premiumCost"/>
+		<result column="SEMIPREMIUM_COST" property="semipremiumCost"/>
+		<result column="FRONT_COST" property="frontCost"/>
+		<result column="STANDARD_COST" property="standardCost"/>
+		<result column="SUN" property="sun"/>
+		<result column="MON" property="mon"/>
+		<result column="TUE" property="tue"/>
+		<result column="WED" property="wed"/>
+		<result column="THU" property="thu"/>
+		<result column="FRI" property="fri"/>
+		<result column="SAT" property="sat"/>
+		<result column="DEPARTURE_AIRPORT" property="departureAirport"/>
+		<result column="ARRIVAL_AIRPORT" property="arrivalAirport"/>
+		<result column="SCHEDULE_NO" property="roScheduleNo"/>
+		<result column="DEPARTURE_DATE" property="roDepartureDate"/>
+		<result column="ARRIVAL_DATE" property="roArrivalDate"/>
+		<result column="SCHEDULE_COST" property="roScheduleCost"/>
+		<result column="PLANE_SIZE_COST" property="roPlaneSizeCost"/>
+		<result column="CITY" property="roCity"/>
+		<result column="CITY2" property="roCity2"/>
+		<result column="REMAINING_SEATS" property="roRemainingSeats"/>
+		<result column="PLANE_NAME" property="roPlaneName"/>
+	</resultMap>
+	
+	<select id="dailyLowFor7Days" resultMap="routeResultSet">
+		<![CDATA[
+			SELECT A.DEPARTURE_DATE, TO_CHAR(TO_DATE(A.DEPARTURE_DATE,'yy-MM-dd'),'DY') AS "SUN", ROUTE_COST
+			FROM (
+			        SELECT TO_DATE(#{roDepartureDate},'YY-MM-DD') + (LEVEL-1) -3 AS "DEPARTURE_DATE"
+			        FROM DUAL
+			        CONNECT BY LEVEL <= 7
+			      ) A,
+			     (
+			        SELECT DEPARTURE_DATE, MIN(ROUTE_COST+SCHEDULE_COST) "ROUTE_COST"
+			        FROM SCHEDULE
+			        JOIN ROUTE USING (ROUTE_NO)
+			        LEFT JOIN SEAT USING (SCHEDULE_NO)
+			        JOIN AIRPLANE USING (PLANE_NO)
+			        LEFT JOIN BOOKING USING (SCHEDULE_NO)
+			        WHERE DEPARTURE_DATE >= (TO_DATE(#{roDepartureDate},'yy-MM-dd')-(INTERVAL '3' DAY))
+			        AND DEPARTURE_DATE <= (TO_DATE(#{roDepartureDate},'yy-MM-dd')+(INTERVAL '3' DAY))
+			        AND DEPARTURE_AIRPORT = #{departureAirport}
+			        AND ARRIVAL_AIRPORT = #{arrivalAirport}
+			        AND ((PREMIUM_CAP+SEMI_CAP+FRONT_CAP+STANDARD_CAP) - NVL((ADULT+CHILD),0))>0
+			        GROUP BY DEPARTURE_DATE
+			      ) B
+			WHERE B.DEPARTURE_DATE(+) = A.DEPARTURE_DATE
+			ORDER BY DEPARTURE_DATE
+		  ]]>
+	</select>
+	
+	<select id="selectItinerary" resultMap="routeResultSet">
+		SELECT SCHEDULE_NO, 
+		        FLIGHT_NAME, 
+		        PLANE_NAME, 
+		        DEPARTURE_DATE, 
+		        DEPARTURE_TIME, 
+		        ARRIVAL_DATE, 
+		        ARRIVAL_TIME, 
+		        FLIGHT_TIME, 
+		        ROUTE_COST, 
+		        SCHEDULE_COST, 
+		        PLANE_SIZE_COST, 
+		        DEPARTURE_AIRPORT, 
+		        ARRIVAL_AIRPORT, 
+		        CITY, 
+		        (SELECT CITY FROM AIRPORT WHERE AIRPORT_CODE = ARRIVAL_AIRPORT) AS "CITY2", 
+		        (PREMIUM_CAP+SEMI_CAP+FRONT_CAP+STANDARD_CAP) - NVL((ADULT+CHILD),0) AS "REMAINING_SEATS"
+		FROM SCHEDULE 
+		JOIN ROUTE USING (ROUTE_NO)
+		JOIN AIRPORT ON (DEPARTURE_AIRPORT=AIRPORT_CODE)
+		JOIN AIRPLANE USING (PLANE_NO)
+		LEFT JOIN BOOKING USING (SCHEDULE_NO)
+		WHERE DEPARTURE_DATE = #{roDepartureDate}
+		AND DEPARTURE_AIRPORT = #{departureAirport}
+		AND ARRIVAL_AIRPORT = #{arrivalAirport}
+		AND ((PREMIUM_CAP+SEMI_CAP+FRONT_CAP+STANDARD_CAP) - NVL((ADULT+CHILD),0))>0
+		ORDER BY DEPARTURE_TIME
+	</select>
+
+	<!-- 좌석 resultMap -->
+	<resultMap type="seat" id="seatResultSet">
+		<result column="SEAT_CODE" property="seatCode"/>
+		<result column="SCHEDULE_NO" property="scheduleNo"/>
+		<result column="SEAT_GRADE" property="seatGrade"/>
+		<result column="BOOKING_STATUS" property="bookingStatus"/>
+	</resultMap>
+
+	<!-- 예매되어 있는 좌석 불러오기 -->
+	<select id="selectBookingSeat" resultType="string">
+		SELECT SEAT_CODE
+		FROM SEAT
+		WHERE SCHEDULE_NO = 1
+		AND BOOKING_STATUS = 'Y'
+	</select>
+	
+	<!-- 위탁수하물 resultMap -->
+	<resultMap type="baggage" id="baggageResultSet">
+		<result column="CB_CODE" property="cbCode"/>
+		<result column="CB_PRICE" property="cbPrice"/>
+		<result column="CB" property="cb"/>
+	</resultMap>
+
+	<!-- 위탁수하물 정보 가져오기 -->
+	<select id="BaggageInfo" resultMap="baggageResultSet">
+		SELECT CB_CODE ,
+		        CB_PRICE ,
+		        CB 
+		FROM CHECKED_BAGGAGE
+	</select>
+	
+	<!-- 좌석 가격 불러오기 -->
+	<select id="SelectSeatPrice" resultType="_int">
+		SELECT ${caSeatPrice}
+		FROM ROUTE
+		JOIN SCHEDULE USING(ROUTE_NO)
+		WHERE SCHEDULE_NO = #{caScheduleNo}
+	</select>
+	
+	<!-- 위탁수하물 가격 불러오기 -->
+	<select id="SelectBaggagePrice" resultType="_int">
+		SELECT CB_PRICE
+		FROM CHECKED_BAGGAGE
+		WHERE CB_CODE = '${caCbPrice}'
+	</select>
+	
+	<insert id="insertBookingInfo">
+		INSERT INTO BOOKING(
+							BOOKING_NO,
+		                    BOOKING_DATE,
+		                    KIND,
+		                    ADULT,
+		                    CHILD,
+		                    BABY,
+		                    SCHEDULE_NO,
+		                    USER_NO)
+		            VALUES (SEQ_BOOK.NEXTVAL,
+		                    SYSDATE,
+		                    #{kind},
+		                    #{adult},
+		                    #{child},
+		                    #{baby},
+		                    #{scheduleNo},
+		                    #{userNo})
+	</insert>
+	
+</mapper>
+  

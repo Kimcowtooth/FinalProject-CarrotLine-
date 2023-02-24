@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="adminMapper">
+
+	<resultMap type="route" id="routeResult">
+		<result column="ROUTE_NO" property="routeNo"/>
+		<result column="FLIGHT_NAME" property="flightName"/>
+		<result column="DEPARTURE_TIME" property="departureTime"/>
+		<result column="ARRIVAL_TIME" property="arrivalTime"/>
+		<result column="FLIGHT_TIME" property="flightTime"/>
+		<result column="ROUTE_COST" property="routeCost"/>
+		<result column="MILEAGE" property="mileage"/>
+		<result column="PREMIUM_COST" property="premiumCost"/>
+		<result column="SEMIPREMIUM_COST" property="SemipremiumCost"/>
+		<result column="FRONT_COST" property="frontCost"/>
+		<result column="STANDARD_COST" property="standardCost"/>
+		<result column="SUN" property="sun"/>
+		<result column="MON" property="mon"/>
+		<result column="TUE" property="tue"/>
+		<result column="WED" property="wed"/>
+		<result column="THU" property="thu"/>
+		<result column="FRI" property="fri"/>
+		<result column="SAT" property="sat"/>
+		<result column="DEPARTURE_AIRPORT" property="departureAirport"/>
+		<result column="ARRIVAL_AIRPORT" property="arrivalAirport"/>
+	</resultMap>
+	<resultMap type="sales" id="salesResultSet">
+		<result column="BOOKING_NO" property="bookingNo"/>
+		<result column="PAYMENT_METHOD" property="paymentMethod"/>
+		<result column="CARD_NO" property="cardNo"/>	
+		<result column="APPROVAL_NO" property="approvalNo"/>
+		<result column="PAYMENT_DATE" property="paymentDate"/>
+		<result column="USER_MILEAGE" property="useMileage"/>
+		<result column="CARD_PAYMENT" property="cardPayment"/>
+	</resultMap>
+	<resultMap type="booking" id="bookingResultSet">
+		<result column="BOOKING_NO" property="bookingNo"/>
+		<result column="BOOKING_DATE" property="bookingDate"/>
+		<result column="KIND" property="kind"/>	
+		<result column="ADULT" property="adult"/>
+		<result column="CHILD" property="child"/>
+		<result column="BABY" property="baby"/>
+		<result column="SCHEDULE_NO" property="scheduleNo"/>
+		<result column="USER_NO" property="userNo"/>
+	</resultMap>		
+
+	<select id="routeList" resultMap="routeResult">
+		SELECT FLIGHT_NAME,
+			   DEPARTURE_TIME,
+			   ARRIVAL_TIME,
+			   DEPARTURE_AIRPORT,
+			   ARRIVAL_AIRPORT
+		FROM ROUTE
+		ORDER BY DEPARTURE_TIME DESC
+	</select>
+	<!-- 관리자페이지 이달의 항공권 판매량 불러오기 -->
+	<select id="selectSalesCount" resultType="_int">
+		SELECT SUM(CARD_PAYMENT)
+	    FROM SALES
+	    WHERE TO_NUMBER(SUBSTR(PAYMENT_DATE ,6,2)) = #{monthValue}	
+	</select>
+	<!-- 관리자페이지 오늘의 항공권 판매량 불러오기 -->
+	<select id="todaySalesCount" resultType="_int">
+        SELECT SUM(CARD_PAYMENT)
+	    FROM SALES
+	    WHERE SUBSTR(PAYMENT_DATE ,1,10) = #{sNow}
+	</select>
+	<!-- 관리자페이지 오늘의 항공편 검색 -->
+	<select id="todayFtotalCount" resultType="_int">
+        SELECT COUNT(SCHEDULE_NO)
+		FROM SCHEDULE
+		WHERE SUBSTR(DEPARTURE_DATE ,7,2) = #{dayOfYear}
+	</select>
+	<!-- 관리자페이지 금일 비행 일정 조회-->
+	<select id="todaySche" resultType="_int">
+	 	SELECT NVL((SELECT COUNT(SCHEDULE_NO)FROM SCHEDULE WHERE DEPARTURE_DATE = #{sNow}),0)
+  		FROM DUAL
+	</select>
+	<!-- 관리자페이지 금일 예약자 좌석 착석 인원 조회 -->
+	<select id="todayPerson" resultType="_int">
+	 	SELECT NVL((SELECT SUM(ADULT+CHILD) AS SUM FROM BOOKING WHERE BOOKING_DATE = #{sNow}),0)
+ 		FROM DUAL
+	</select>
+	<!-- 관리자페이지 올해 매출 그래프 -->
+	<select id="sMonthOfThisyear" resultType="_int">
+	 	SELECT SUM(CARD_PAYMENT)
+		FROM SALES
+		WHERE SUBSTR(PAYMENT_DATE,1,4) = #{year}
+		GROUP BY SUBSTR(PAYMENT_DATE,1,7)
+		ORDER BY SUBSTR(PAYMENT_DATE,1,7)
+	</select>	
+	
+
+</mapper>

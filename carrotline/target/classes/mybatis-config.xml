@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd" >
+<configuration>
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
+
+	<!-- 별칭등록 -->
+	<typeAliases>
+		<typeAlias type="com.kh.carrot.board.model.vo.Board" alias="board"/>
+		<typeAlias type="com.kh.carrot.member.model.vo.Member" alias="member"/>
+		<typeAlias type="com.kh.carrot.common.model.vo.Airport" alias="airport"/>
+		<typeAlias type="com.kh.carrot.common.model.vo.Route" alias="route"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.Seat" alias="seat"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.CheckedBaggage" alias="baggage"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.Booking" alias="booking"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.Ticket" alias="ticket"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.Passenger" alias="passenger"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.AdditionalServices" alias="additionalServices"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.Sales" alias="sales"/>
+		<typeAlias type="com.kh.carrot.booking.model.vo.CookieAll" alias="cookieAll"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="/mappers/member-mapper.xml"/>
+		<mapper resource="/mappers/common-mapper.xml"/>
+		<mapper resource="/mappers/booking-mapper.xml"/>
+		<mapper resource="/mappers/admin-mapper.xml"/>
+		<mapper resource="/mappers/board-mapper.xml"/>
+	</mappers>
+</configuration>

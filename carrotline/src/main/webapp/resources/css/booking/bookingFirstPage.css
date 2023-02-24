@@ -1,0 +1,1007 @@
+@charset "UTF-8";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.content {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    min-height: 450px;
+}
+
+.tit_booking_wrap .step_booking li em {
+    display: none;
+}
+
+.tit_booking_wrap .step_booking .on {
+    font-weight: 700;
+}
+
+.tit_booking_wrap .step_booking .on em {
+    display: inline;
+}
+
+.tit_booking_wrap .step_booking .on.past .text_step {
+    margin-left: -9px;
+}
+
+.tit_booking_wrap .step_booking .on.past em {
+    display: none;
+}
+
+.tit_booking_wrap.fix {
+    margin-top: 0;
+    text-align: center;
+}
+
+.tit_booking_wrap.fix .step_booking {
+    float: none;
+}
+
+.tit_booking_wrap.fix .step_booking ol {
+    font-size: 0;
+}
+
+.tit_booking_wrap.fix .step_booking ol li {
+    float: none;
+    display: inline-block;
+    height: inherit;
+    vertical-align: top;
+}
+
+.tit_booking_wrap.fix .text_step {
+    display: block;
+    margin-left: -5px;
+}
+
+.tit_booking_wrap.fix .on .text_step {
+    margin-left: 0;
+}
+.tit_booking_wrap {
+    margin-top: 60px;
+}
+
+.tit_booking_wrap:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.tit_booking_wrap .pg_tit {
+    float: left;
+    display: inline-block;
+    font-size: 41px;
+    color: #1a1a1a;
+    text-align: left;
+}
+
+.tit_booking_wrap .step_booking {
+    float: right;
+}
+
+.tit_booking_wrap .step_booking li {
+    float: left;
+    padding-top: 35px;
+    width: 120px;
+    height: 50px;
+    font-size: 13px;
+    color: #808080;
+    text-align: center;
+    letter-spacing: -1px;
+    background-repeat: no-repeat;
+    background-position: 2px -2px;
+    box-sizing: border-box;
+}
+
+.tit_booking_wrap .step_booking li.on {
+    color: #d22c26;
+}
+
+.tit_booking_wrap .step_booking li.on .txt_step {
+    font-size: 0;
+    text-indent: -9999px;
+}
+div.debug {
+         display:none;
+     }
+
+.input_booking_wrap {
+    margin-top: 60px;
+}
+
+.input_booking_wrap .booking_option:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.input_booking_wrap .booking_option .sel_section {
+    float: left;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+.input_booking_wrap .booking_option .sel_section li {
+    float: left;
+    position: relative;
+    padding: 15px 20px;
+    min-width: 120px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.input_booking_wrap .booking_option .sel_section li label {
+    height: auto;
+    line-height: auto;
+}
+
+.input_booking_wrap .booking_option .sel_section li input[type=radio] + label {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.input_booking_wrap .booking_option .sel_section li a {
+    position: relative;
+    font-size: 20px;
+    color: #1a1a1a;
+    display: inline-block;
+    width: 100%;
+}
+
+.input_booking_wrap .booking_option .sel_section li.on {
+    background-color: #d22c26;
+    border-radius: 30px;
+}
+
+.input_booking_wrap .booking_option .sel_section li.on a {
+    font-weight: 700;
+    color: #fff;
+}
+
+.input_booking_wrap .booking_option .sel_group {
+    float: left;
+    display: inline-block;
+    margin-left: 20px;
+    height: 60px;
+    padding: 17px 0 0 5px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_group_gray.png") no-repeat 0 16px;
+    box-sizing: border-box;
+}
+
+.input_booking_wrap .booking_option .sel_group label {
+    position: relative;
+    left: auto;
+    right: -30px;
+    min-width: 165px;
+    height: 25px;
+    margin-right: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.input_booking_wrap .booking_option .sel_group label .icon {
+    width: 24px;
+    height: 22px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_checkbox.png") no-repeat 0 0;
+}
+
+.input_booking_wrap .booking_option .sel_group input[type=checkbox]:checked + label .icon {
+    width: 24px;
+    height: 22px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_checkbox_group.png") no-repeat 0 0;
+}
+
+.input_booking_wrap .booking_option .sel_group.on {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_group_gray_on.png");
+}
+
+.input_booking_wrap .booking_input {
+    padding-top: 60px;
+    border-top: 1px solid #ccc;
+    /* 다국어-하단 border 가림이슈:height변경 36->35  */
+}
+
+.input_booking_wrap .booking_input:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.input_booking_wrap .booking_input label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+}
+
+.input_booking_wrap .booking_input input.booking {
+    padding: 0;
+    width: 260px;
+    height: 36px;
+    font-size: 20px;
+    background: none;
+}
+input.booking {
+    padding: 15px 30px 15px 15px;
+    width: 240px;
+    font-size: 16px;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #b3b3b3;
+    box-sizing: border-box;
+    background-color: #f2f6f9;
+}
+.input_wrap .btn_pin {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url(//contents-image.twayair.com/homepage/images/ico/ico_btn_pin.png) no-repeat 50% 50%;
+    text-indent: -9999px;
+    z-index: 1;
+}
+.input_booking_wrap .booking_input .sel_passenger {
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.input_booking_wrap .booking_input .sel_passenger input {
+    padding: 0;
+    width: 75px;
+    height: 30px;
+    font-size: 20px;
+    color: #808080;
+    text-align: center;
+    border: 0;
+}
+
+.input_booking_wrap .booking_input .sel_passenger input:focus {
+    border: 0;
+}
+
+.input_booking_wrap .booking_input .sel_passenger .btn_plus {
+    float: right;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border-left: 1px solid #ccc;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_plus02.png") no-repeat 50% 50%;
+    text-indent: -9999px;
+}
+
+.input_booking_wrap .booking_input .sel_passenger .btn_minus {
+    float: left;
+    display: inline-block;
+    width: 28px;
+    height: 30px;
+    vertical-align: middle;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_minus02.png") no-repeat 50% 50%;
+    border-right: 1px solid #ccc;
+    text-indent: -9999px;
+}
+.input_booking_wrap .booking_input.section_passenger .booking_form > li {
+    margin-bottom: 0;
+}
+.input_booking_wrap .booking_input .booking_form > li {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 50px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.input_booking_wrap .booking_input .booking_form > li:nth-child(odd) {
+    float: left;
+    width: 770px;
+}
+
+.input_booking_wrap .booking_input .booking_form > li:nth-child(even) {
+    float: right;
+}
+
+.input_booking_wrap .booking_input .booking_form > li:nth-child(3), .input_booking_wrap .booking_input .booking_form > li:nth-child(4) {
+    margin: 0;
+}
+
+.input_booking_wrap .booking_input .sel_route .selected_area {
+    left: 75px;
+    background-color: #fff;
+    top: 23px;
+    height: 35px;
+}
+
+.input_booking_wrap .booking_input .input_wrap {
+    display: inline-block;
+    position: relative;
+    padding-left: 75px;
+    box-sizing: border-box;
+}
+
+.input_booking_wrap .booking_input .input_wrap input:focus {
+    border-bottom: 1px solid #d22c26;
+}
+
+.input_booking_wrap .booking_input .input_wrap:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.input_booking_wrap .booking_input .input_wrap.focus:before {
+    background-color: #d22c26;
+}
+
+.input_booking_wrap .booking_input .input_wrap.focus:after {
+    background: #d22c26;
+}
+
+.input_booking_wrap .booking_input .input_wrap.on:before {
+    background-color: #d22c26;
+    box-shadow: 2px 2px 20px #999;
+}
+
+.input_booking_wrap .booking_input .input_wrap.passenger {
+    display: block;
+}
+
+.input_booking_wrap .booking_input .input_wrap.passenger dl {
+    display: inline-block;
+    width: 150px;
+    box-sizing: border-box;
+}
+
+.input_booking_wrap .booking_input .input_wrap.passenger dl + dl {
+    margin-left: 25px;
+}
+
+.input_booking_wrap .booking_input .input_wrap.passenger:before {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_passenger_wh.png");
+}
+
+.input_booking_wrap .booking_input .input_wrap.start:before {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_start_wh.png");
+}
+
+.input_booking_wrap .booking_input .input_wrap.end:before {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_end_wh.png");
+}
+
+.input_booking_wrap .booking_input .input_wrap.date {
+    width: 415px;
+}
+
+.input_booking_wrap .booking_input .input_wrap.date input {
+    width: 135px;
+    border-bottom: 0;
+}
+
+.input_booking_wrap .booking_input .input_wrap.date input:focus {
+    border-bottom: 0;
+}
+
+.input_booking_wrap .booking_input .input_wrap.date input::placeholder, .input_booking_wrap .booking_input .input_wrap.date input::-ms-input-placeholder {
+    letter-spacing: -3px;
+}
+
+.input_booking_wrap .booking_input .input_wrap.date .space {
+    display: inline-block;
+    font-size: 24px;
+    color: #808080;
+}
+
+.input_booking_wrap .booking_input .input_wrap.date:before {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_calendar_wh.png");
+}
+
+.input_booking_wrap .booking_input .input_wrap.date:after {
+    display: inline-block;
+    content: "";
+    width: 340px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    background: #b3b3b3;
+}
+
+.input_booking_wrap .booking_input .input_wrap.salecode {
+    display: block;
+}
+
+.input_booking_wrap .booking_input .input_wrap.salecode input {
+    width: 340px;
+}
+
+.input_booking_wrap .booking_input .input_wrap.salecode .tooltip_layer {
+    left: -180px;
+}
+
+.input_booking_wrap .booking_input .input_wrap.salecode .tooltip_layer:before {
+    left: 177px;
+}
+
+.input_booking_wrap .booking_input .input_wrap.salecode:before {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_sale_code_wh.png");
+}
+
+.input_booking_wrap .booking_input.section {
+    margin-top: 40px;
+    padding: 0;
+    border: 0;
+}
+
+.input_booking_wrap .booking_input.section .section_tit {
+    margin-bottom: 50px;
+    text-align: center;
+    background: url("//contents-image.twayair.com/homepage/images/booking/bg_section.png") no-repeat 50% 50%;
+}
+
+.input_booking_wrap .booking_input.section .section_tit h5 {
+    display: inline-block;
+    padding-left: 30px;
+    font-size: 18px;
+    color: #1a1a1a;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_section_tit.png") no-repeat 0 50%;
+}
+
+.input_booking_wrap .booking_input .sbtn_cont, .input_booking_wrap .booking_input .txt_tooltip {
+    margin: 10px 0 0 75px;
+    padding: 0 10px;
+}
+
+.input_booking_wrap .booking_input.section_passenger {
+    border-top: 0;
+    padding-top: 0;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #ccc;
+}
+
+.input_booking_wrap .booking_input.section_passenger .booking_form > li {
+    margin-bottom: 0;
+}
+
+.input_booking_wrap .btn_section {
+    margin-bottom: 60px;
+    padding-top: 20px;
+    text-align: right;
+    border-top: 1px solid #ccc;
+}
+
+.input_booking_wrap .btn_section .sbtn_cont.section_minus {
+    padding: 0 20px 0 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #808080;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_section_minus.png") #fff no-repeat 20px 50%;
+}
+
+.input_booking_wrap .btn_section .sbtn_cont.section_plus {
+    padding: 0 20px 0 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: 0;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_section_plus.png") #7d756d no-repeat 20px 50%;
+}
+.h_booking .sel_booking .booking_wrap .input_wrap .start {
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_header_start.png") no-repeat 0 50%;
+}
+.main .search_wrap .search_input .btn_pin {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_btn_pin.png") no-repeat 50% 50%;
+    text-indent: -9999px;
+}
+.h_booking .sel_booking .booking_wrap .input_wrap .btn_pin {
+    bottom: 13px;
+}
+.input_booking_wrap .btn_pin {
+    transform: translateY(0) !important;
+}
+
+.input_booking_wrap .btn_date {
+    transform: translateY(0) !important;
+}
+
+.main .search_wrap .search_input .btn_pin {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_btn_pin.png") no-repeat 50% 50%;
+    text-indent: -9999px;
+}
+
+.btn_large {
+    display: inline-block;
+    padding: 17px 40px;
+    min-width: 170px;
+    min-height: 60px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.1;
+    background-color: #fff;
+    border: 1px solid #b0b0b0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    /*.btn_large.type02.gray2 와 동일한 스타일. 퓨즈에서 한벌 더 생성함. 이부분 찾아내 일괄수정 필요.*/
+}
+
+.btn_large.red {
+    color: #fff !important;
+    background-color: #d22c26;
+    border: 1px solid #d22c26;
+}
+
+.btn_change {
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    margin: 0 20px;
+    width: 30px;
+    height: 30px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_change.png") no-repeat 50% 0;
+    text-indent: -9999px;
+}
+.pg_tit_wrap {
+    padding: 56px 0;
+}
+
+.pg_tit {
+    font-size: 40px;
+    color: #1a1a1a;
+    text-align: center;
+}
+.eticket_wrap .top_area .pg_tit_wrap .pg_tit {
+    text-align: left;
+}
+.pokemon .pg_tit_wrap:first-child .pg_tit {
+    line-height: 50px;
+}
+
+.pokemon .pg_tit_wrap:last-child .pg_tit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+}
+
+.pokemon .pg_tit_wrap:last-child .pg_tit::before {
+    content: "";
+    position: absolute;
+    width: 90.21px;
+    height: 34.88px;
+    top: 26px;
+    left: -130px;
+    background: url("//contents-image.twayair.com/homepage/images/pokemon/img_airplane.svg") 0 center no-repeat;
+    background-size: cover;
+}
+.pokemon .pg_tit_wrap .pg_tit + .con_tit {
+    padding: 29px 0 0;
+    width: 100%;
+    text-align: center;
+}
+.e_recipt .wrapper .heading .pg_tit {
+    padding-top: 50px;
+    font-size: 40px;
+    text-align: left;
+}
+.eticket_wrap .top_area .cont .pg_tit {
+    font-size: 36px;
+}
+.e_recipt .pg_tit {
+        padding-top: 0;
+        font-size: 28px;
+    }
+.input_booking_wrap .booking_input .sel_route .selected_area {
+    left: 75px;
+    background-color: #fff;
+    top: 23px;
+    height: 35px;
+}
+.h_booking .sel_booking .booking_wrap .input_wrap .selected_area {
+    height: 32px;
+}
+
+.h_booking .sel_booking .booking_wrap .input_wrap .selected_area .eng {
+    font-size: 20px;
+}
+
+.h_booking .sel_booking .booking_wrap .input_wrap .selected_area .area {
+    font-size: 16px;
+}
+
+.h_booking .sel_booking .booking_wrap .input_wrap .selected_area.on {
+    background-color: #fff;
+    margin-left: 15px;
+    height: 30px;
+}
+.input_wrap .selected_area.on {
+    display: none;
+}
+.tab_cont {
+    margin-top: 50px;
+}
+
+.tab_cont.fixed {
+    margin-top: 40px;
+}
+
+.tab_cont.bdr {
+    border: 1px solid #ccc;
+    border-top: 0;
+    margin-top: 0;
+    padding: 40px;
+}
+ul, ol, li {
+    list-style: none;
+}
+.layer.j_detail .section_wrap .section_small.start {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_section_start_s.png");
+}
+a {
+    color: rgb(49, 49, 49);
+    text-decoration: none;
+    cursor: pointer;
+}
+input[type="radio"] {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+}
+img, input, textarea, select, button {
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
+    color: rgb(49, 49, 49);
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: Arial, Meiryo, "Hiragino Kaku Gothic Pro", "Microsoft Yahei", STXihei, "Microsoft MingLiU", Mingliu, SimHei, "Nanum Gothic", "Yu Gothic", sans-serif;
+}
+.btn_tooltip.gray {
+    background: url(//contents-image.twayair.com/homepage/images/ico/ico_tooltip_gray.png) 0px 0px no-repeat;
+}
+.btn_tooltip {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    background: url(//contents-image.twayair.com/homepage/images/ico/ico_tooltip.png) 0px 0px no-repeat;
+}
+.blind {
+    display: inline-block;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    height: 0px;
+    font-size: 1px;
+    text-indent: -9999px;
+}
+.h_booking .sel_booking .booking_wrap .input_wrap .btn_date {
+    bottom: 13px;
+}
+.box_srch .ico_ipt .btn_date {
+    display: inline-block;
+    width: 40px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_booking_date.png") no-repeat 50% 50%;
+    vertical-align: middle;
+}
+.input_wrap .btn_date {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 20px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_btn_date.png") no-repeat 50% 50%;
+    text-indent: -9999px;
+}
+.input_wrap .input_date .btn_date {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    width: 21px;
+    height: 21px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_date.png") no-repeat 0 0;
+    text-indent: -9999px;
+}
+.btn_wrap {
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.tooltip_layer {
+    position: absolute;
+    top: 28px;
+    left: -40px;
+    padding: 22px;
+    width: 390px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #4d4d4d;
+    box-shadow: 1px 1px 15px #ccc;
+    z-index: 20;
+}
+
+.tooltip_layer:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    left: 40px;
+    top: -7px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(-45deg);
+    border: 1px solid #000;
+    border-bottom: transparent;
+    border-left: transparent;
+    background-color: #fff;
+}
+
+.tooltip_layer.lft {
+    left: 30px;
+    top: -30px;
+}
+
+.tooltip_layer.lft:before {
+    left: -7px;
+    top: 30px;
+    transform: rotate(-135deg);
+}
+
+.tooltip_layer.txt {
+    top: 115px;
+}
+
+.tooltip_layer.txt:before {
+    top: -11px;
+    left: 150px;
+}
+
+.tooltip_layer .tooltip_tit {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tooltip_layer .tooltip_tit h5 {
+    display: inline-block;
+    font-size: 30px;
+    color: #1a1a1a;
+    vertical-align: middle;
+}
+
+.tooltip_layer .tooltip_tit img + h5 {
+    margin-left: 20px;
+}
+
+.tooltip_layer .tooltip_tit.no_bd {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.tooltip_layer .tooltip_cont {
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #4d4d4d;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+}
+
+.tooltip_layer .tooltip_cont dl {
+    display: block !important;
+    width: auto !important;
+}
+
+.tooltip_layer .tooltip_cont dl + dl {
+    margin-top: 25px;
+    margin-left: 0 !important;
+}
+
+.tooltip_layer .tooltip_cont dt {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.tooltip_layer .tooltip_cont .info {
+    margin-top: 25px;
+}
+
+.tooltip_layer .tooltip_cont .info li {
+    margin: 0;
+    font-size: 14px;
+    color: #7d756d;
+    line-height: 24px;
+}
+
+.tooltip_layer .tooltip_cont .ul_dot {
+    margin-top: 25px;
+}
+
+.header .header_inner {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.header .header_inner:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header .header_inner > a {
+    float: left;
+}
+
+.header .header_inner .logo_favor {
+    margin-top: 14px;
+    display: inline-block;
+}
+
+.header .header_inner .logo_favor img {
+    height: 30px;
+}
+
+.header .header_inner .logo_favor:before {
+    display: inline-block;
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin: 0 10px;
+    vertical-align: middle;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_x.png") no-repeat -4px -4px;
+}
+
+.header.dutyfree .header_inner {
+    height: 55px;
+}
+
+.header .util_wrap {
+    float: right;
+    padding-top: 16px;
+}
+
+.header .util_wrap .sel_lang_wrap {
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header .util_wrap .sel_lang_wrap > ul > li {
+    float: left;
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap > ul > li:first-child:after {
+    display: inline-block;
+    content: "";
+    position: relative;
+    top: 2px;
+    margin: 0 20px 0 15px;
+    width: 1px;
+    height: 12px;
+    background-color: #7f7f7f;
+}
+
+.header .util_wrap .sel_lang_wrap > ul > li a {
+    display: inline-block;
+    padding-right: 14px;
+    font-size: 14px;
+    color: #4d4d4d;
+    background: url("//contents-image.twayair.com/homepage/images/common/arr_txt_sel.png") no-repeat 99.9% 50%;
+}
+
+.header .util_wrap .sel_lang_wrap.ta {
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap.ta:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header .util_wrap .sel_lang_wrap.ta > ul > li {
+    float: left;
+    position: relative;
+}
+
+.header .util_wrap .sel_lang_wrap.ta > ul > li:first-child:after {
+    display: inline-block;
+    content: "";
+    position: relative;
+    top: 0;
+    margin: 0px;
+    width: 0;
+    height: 0;
+    background-color: #fff;
+}
+
+.header .util_wrap .sel_lang_wrap.ta > ul > li a {
+    display: inline-block;
+    padding-right: 14px;
+    font-size: 14px;
+    color: #4d4d4d;
+    background: url("//contents-image.twayair.com/homepage/images/common/arr_txt_ta.png") no-repeat 100% 50%;
+}
+
+.header .util_wrap .util_menu {
+    float: right;
+    position: relative;
+    margin-top: 10px;
+}
+
+.header .util_wrap .util_menu a {
+    display: inline-block;
+    margin-right: 26px;
+    width: 26px;
+    height: 26px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+
+.header .util_wrap .util_menu a:last-child {
+    margin-right: 0;
+}
+
+.header .util_wrap .util_menu .btn_login {
+    width: 30px;
+    height: 30px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_top_login.png") no-repeat 100% 0;
+}
+
+.header .util_wrap .util_menu .btn_login.on {
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_top_login_on.png") no-repeat 100% 0;
+}
+
+.header .util_wrap .util_menu .btn_search {
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_top_search.png");
+}
+
+.header .util_wrap .util_menu .btn_allmenu {
+    margin-right: 0;
+    background-image: url("//contents-image.twayair.com/homepage/images/ico/ico_top_allmenu.png");
+}

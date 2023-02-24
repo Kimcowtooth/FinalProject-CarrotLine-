@@ -1,0 +1,839 @@
+@charset "UTF-8";
+
+.lyr_above .layer_start2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.lyr_above .layer_start2:before {
+    display: none;
+}
+
+.layer_start2 {
+    position: relative;
+    padding: 30px 15px 35px 40px;
+    width: 725px;
+    background-color: #fff;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px #ccc;
+    z-index: 35;
+    /*****************************************************
+    * 메인 노선 레이어팝업
+    ******************************************************/
+}
+
+.layer_start2.if287:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 287px;
+    width: 20px;
+    height: 11px;
+    background: url("//contents-image.twayair.com/homepage/images/common/tooltip_layer_top.png") no-repeat 0 0;
+}
+
+.layer_start2.if437:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 437px;
+    width: 20px;
+    height: 11px;
+    background: url("//contents-image.twayair.com/homepage/images/common/tooltip_layer_top.png") no-repeat 0 0;
+}
+
+.layer_start2:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 37px;
+    width: 20px;
+    height: 11px;
+    background: url("//contents-image.twayair.com/homepage/images/common/tooltip_layer_top.png") no-repeat 0 0;
+}
+
+.layer_start2:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.layer_start2 .sel_tit {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.layer_start2 .sel_route_list.type2 .scroll {
+    height: 440px;
+}
+
+.layer_start2.main_selec_start {
+    left: 30px;
+    /* top:205px; */
+    top: -19px;
+    padding: 30px 40px 35px 40px;
+    height: 451px;
+    position: absolute;
+    box-shadow: rgb(255, 255, 255) 1px 1px 15px;
+}
+
+.layer_start2.main_selec_start .mCSB_draggerContainer {
+    right: -11px;
+}
+
+.layer_start2.main_selec_start .main_selec_search {
+    border: 2px solid rgb(210, 44, 38);
+    width: 720px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide {
+    border: 2px solid rgb(210, 44, 38);
+    background: #fff;
+    width: 720px;
+    border-radius: 0px 0px 5px 5px;
+    border-top: 1px solid #D8D8D8;
+    position: absolute;
+    left: 50%;
+    top: 44px;
+    transform: translateX(-50%);
+    z-index: 99999;
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul {
+    /* 20220630 웹접근성 : 출도착지 html변경되면서 text-align:left */
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul li {
+    text-align: left;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul li.on {
+    background: #F2F6F9;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul li a {
+    display: block;
+    padding: 9px 0 9px 46px;
+    margin-top: 8px;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul li a:last-child {
+    margin-bottom: 8px;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul li a:hover {
+    background: #F2F6F9;
+}
+
+.layer_start2.main_selec_start .main_selec_search .selec_slide ul li a span {
+    color: #D12D24;
+}
+
+.layer_start2.main_selec_start .main_selec_search input {
+    width: 720px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 46px !important;
+}
+
+.layer_start2.main_selec_start .main_selec_search input:focus {
+    outline: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search input::-ms-clear {
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search input::-ms-reveal {
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search input::-webkit-search-decoration {
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search input::-webkit-search-results-button {
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search input::-webkit-search-results-decoration {
+    display: none;
+}
+
+.layer_start2.main_selec_start .main_selec_search .btnClear {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    width: 16px;
+    height: 16px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_btnclear.png") 50% 50% no-repeat;
+}
+
+.layer_start2.main_selec_start .main_selec_search .btnSearch {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    width: 16px;
+    height: 16px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_search.png") 50% 50% no-repeat;
+}
+
+.layer_start2.main_selec_start .book_mark_star {
+    position: relative;
+    vertical-align: bottom;
+}
+
+.layer_start2.main_selec_start .book_mark_star:focus {
+    outline-offset: -3px;
+}
+
+.layer_start2.main_selec_start .book_mark_star::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_like_on.png") 50% 50% no-repeat;
+    padding-right: 16px;
+    vertical-align: text-top;
+}
+
+.layer_start2.main_selec_start .sel_area_list {
+    background-color: rgb(242, 246, 249);
+    height: 392px;
+}
+
+.layer_start2.main_selec_start .sel_route_list {
+    height: 392px;
+}
+
+.layer_start2.main_selec_start .sel_route_list.type2 {
+    float: none;
+    padding-left: 16px;
+    width: 416px;
+}
+
+.layer_start2.main_selec_start .sel_route_list.type2 .scroll {
+    height: 350px;
+}
+
+.layer_start2.main_selec_start .sel_city {
+    background-color: rgb(242, 246, 249);
+}
+
+.layer_start2.main_selec_start .sel_city .kor {
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.layer_start2.main_selec_start .layer_cont {
+    overflow: hidden;
+}
+
+.layer_start2.main_selec_start .recent_search {
+    padding: 10px;
+}
+
+.layer_start2.main_selec_start .recent_search .kor_wrap {
+    width: 101px;
+    display: inline-block;
+}
+
+.layer_start2.main_selec_start .recent_search .kor_wrap .kor {
+    width: 97px;
+    max-width: 97px !important;
+    text-align: center;
+    display: -webkit-inline-box;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 18px;
+}
+
+.layer_start2.main_selec_start .recent_search .kor_wrap .air_code {
+    display: block;
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+}
+
+.layer_start2.main_selec_start .recent_search .eng {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.layer_start2.first_start2 {
+    width: 1055px;
+    background: #fff url("//contents-image.twayair.com/homepage/images/main/main_dash_line.png") repeat-y 69% 50%;
+}
+
+.layer_start2.first_start2 .sel_route_list {
+    overflow: hidden;
+    width: auto;
+}
+
+.layer_start2.first_start2 .recent_area {
+    width: 324px;
+    height: auto;
+}
+
+.layer_start2.first_start2 .recent_area .fr {
+    padding-right: 6px;
+}
+
+.layer_start2.first_start2 .recent_area_wrap {
+    position: absolute;
+    right: 15px;
+    top: 30px;
+}
+.layer_start2.main_selec_start .sel_area_list {
+    background-color: rgb(242, 246, 249);
+    height: 392px;
+}
+.box_srch .sel_area_list li,
+.box_srch .sel_city .kor {
+    text-align: left;
+}
+
+/* 20220629 지역선택 레이어 */
+.sel_area_list {
+    float: left;
+    padding: 12px;
+    width: 293px;
+    height: 465px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.sel_area_list.fix {
+    padding: 12px 12px 12px 12px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+
+.sel_area_list.fix::-webkit-scrollbar {
+    display: none;
+}
+
+.sel_area_list li {
+    margin-bottom: 5px;
+}
+
+.sel_area_list .sel_area {
+    display: block;
+    padding: 10px 60px 10px 20px;
+    width: 100%;
+    min-height: 40px;
+    font-size: 16px;
+    color: #1a1a1a;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+.sel_area_list .sel_area:focus {
+    outline-offset: -3px;
+}
+
+.sel_area_list .sel_area.on {
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_area_sel.png") #fff no-repeat 94% 50%;
+    border: 1px solid #d22c26;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.sel_route_list li {
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.sel_route_list .sel_city {
+    display: block;
+    padding: 0 50px 0 20px;
+    width: 100%;
+    height: 40px;
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.sel_route_list .sel_city:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.sel_route_list .sel_city span i {
+    color: #d22c26;
+}
+
+.sel_route_list .sel_city .kor {
+    float: left;
+    display: inline-block;
+    width: 80%;
+    font-size: 16px;
+    color: #1a1a1a;
+    line-height: 40px;
+}
+
+.sel_route_list .sel_city .eng {
+    float: right;
+    display: inline-block;
+    width: 20%;
+    font-size: 16px;
+    color: #1a1a1a;
+    text-align: center;
+    line-height: 40px;
+}
+
+.sel_route_list .sel_city.on {
+    background-color: #fff;
+    border: 1px solid #d22c26;
+}
+
+.sel_route_list .recent_search {
+    display: block;
+    padding: 10px 50px 10px 20px;
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    background-color: #e9f1e1;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.sel_route_list .recent_search:focus {
+    outline-offset: -3px;
+}
+
+.sel_route_list .recent_search:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.sel_route_list .recent_search span {
+    vertical-align: middle;
+}
+
+.sel_route_list .recent_search span i {
+    color: #d22c26;
+}
+
+.sel_route_list .recent_search .kor {
+    font-size: 13px;
+    color: #1a1a1a;
+    line-height: 20px;
+    max-width: 40%;
+    display: inline-block;
+}
+
+.sel_route_list .recent_search .eng {
+    line-height: 20px;
+}
+
+.sel_route_list .recent_search.on {
+    background-color: #fff;
+    border: 1px solid #d22c26;
+}
+
+.sel_route_list .ico_x {
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    text-indent: -9999px;
+    z-index: 2;
+    background: url("//contents-image.twayair.com/homepage/images/ico/btn_layer_close.png") no-repeat 50% 50%;
+}
+
+.sel_route_list .ico_x:focus {
+    right: -2px;
+    outline-offset: -3px;
+}
+
+.sel_route_list .ico_rt {
+    background: url("//contents-image.twayair.com/homepage/images/ico//ico_lwprc.png") no-repeat 6px -4px;
+    width: 30px;
+    height: 14px;
+    display: inline-block;
+}
+
+.sel_route_list .ico_bookmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    text-indent: -9999px;
+    z-index: 2;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_like.png") no-repeat 50% 50%;
+}
+
+.sel_route_list .ico_bookmark:focus {
+    outline-offset: -3px;
+}
+
+.sel_route_list .ico_bookmark.on {
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_like_on.png") no-repeat 50% 50%;
+}
+
+.sel_route_list.type2 {
+    float: right;
+    width: 410px;
+    height: 465px;
+    overflow: auto;
+    -ms-overflow-style: none;
+}
+
+.sel_route_list.type2::-webkit-scrollbar {
+    display: none;
+}
+
+.sel_route_list.type2 .sel_city {
+    padding: 0 60px 0 20px;
+}
+
+.sel_route_list.type2 .sel_city:focus {
+    outline-offset: -3px;
+}
+.mCustomScrollbar {
+    -ms-touch-action: pinch-zoom;
+    touch-action: pinch-zoom;
+    /* direct pointer events to js */
+}
+
+.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action {
+    -ms-touch-action: auto;
+    touch-action: auto;
+}
+.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools,
+.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools {
+    opacity: 0;
+    filter: "alpha(opacity=0)";
+    -ms-filter: "alpha(opacity=0)";
+}
+.mCustomScrollbar > .mCustomScrollBox > .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+.mCustomScrollbar > .mCustomScrollBox ~ .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+.mCustomScrollBox:hover > .mCSB_scrollTools,
+.mCustomScrollBox:hover ~ .mCSB_scrollTools,
+.mCS-autoHide:hover > .mCustomScrollBox > .mCSB_scrollTools,
+.mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools {
+    opacity: 1;
+    filter: "alpha(opacity=100)";
+    -ms-filter: "alpha(opacity=100)";
+}
+.mCustomScrollBox.mCS-minimal + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox.mCS-minimal + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox.mCS-minimal-dark + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox.mCS-minimal-dark + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+    bottom: 0;
+    margin: 0 12px;
+}
+.mCSB_inside > .mCSB_container {
+    margin-right: 30px;
+}
+
+.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+    margin-right: 0;
+}
+
+/* non-visible scrollbar */
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container {
+    /* RTL direction/left-side scrollbar */
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+    margin-left: 0;
+}
+.mCSB_horizontal.mCSB_inside > .mCSB_container {
+    margin-right: 0;
+    margin-bottom: 30px;
+}
+
+.mCSB_horizontal.mCSB_outside > .mCSB_container {
+    min-height: 100%;
+}
+
+.mCSB_horizontal > .mCSB_container.mCS_no_scrollbar_x.mCS_x_hidden {
+    margin-bottom: 0;
+}
+.mCSB_container_wrapper {
+    position: absolute;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.mCSB_container_wrapper > .mCSB_container {
+    padding-right: 30px;
+    padding-bottom: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* non-visible horizontal scrollbar */
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden + .mCSB_scrollTools.mCSB_scrollTools_vertical {
+    bottom: 0;
+}
+
+/* non-visible vertical scrollbar/RTL direction/left-side scrollbar */
+.mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+    right: 0;
+}
+/* non-visible scrollbar/RTL direction/left-side scrollbar */
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+    left: 0;
+}
+
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container_wrapper {
+    /* RTL direction/left-side scrollbar */
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+.mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden > .mCSB_container {
+    padding-right: 0;
+}
+
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden > .mCSB_container {
+    padding-bottom: 0;
+}
+
+.mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden {
+    margin-right: 0;
+    /* non-visible scrollbar */
+    margin-left: 0;
+}
+
+/* non-visible horizontal scrollbar */
+.mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden {
+    margin-bottom: 0;
+}
+.layer_start2.main_selec_start .layer_cont {
+    overflow: hidden;
+}
+/* RTL direction/left-side scrollbar */
+.mCSB_scrollTools {
+    /* contains scrollbar markup (draggable element, dragger rail, buttons etc.) */
+    position: absolute;
+    width: 16px;
+    height: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mCSB_outside + .mCSB_scrollTools {
+    right: -26px;
+}
+
+/* scrollbar position: outside */
+.mCS-dir-rtl > .mCSB_inside > .mCSB_scrollTools,
+.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools {
+    /* RTL direction/left-side scrollbar */
+    right: auto;
+    left: 0;
+}
+
+.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools {
+    left: -26px;
+}
+
+/* RTL direction/left-side scrollbar (scrollbar position: outside) */
+.mCSB_scrollTools .mCSB_draggerContainer {
+    /* contains the draggable element and dragger rail markup */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+}
+
+.mCSB_scrollTools a + .mCSB_draggerContainer {
+    margin: 20px 0;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 2px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+
+.mCSB_scrollTools .mCSB_dragger {
+    /* the draggable element */
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    /* minimum dragger height */
+    z-index: 1;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    /* the dragger element */
+    position: relative;
+    width: 4px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+    width: 12px;
+    /* auto-expanded scrollbar */
+}
+
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+    width: 8px;
+    /* auto-expanded scrollbar */
+}
+
+.mCSB_scrollTools .mCSB_buttonUp,
+.mCSB_scrollTools .mCSB_buttonDown {
+    display: block;
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.mCSB_scrollTools .mCSB_buttonDown {
+    bottom: 0;
+}
+/* theme "rounded-dots", "rounded-dots-dark" */
+.mCS-rounded-dots.mCSB_scrollTools_vertical .mCSB_draggerRail,
+.mCS-rounded-dots-dark.mCSB_scrollTools_vertical .mCSB_draggerRail {
+    width: 4px;
+}
+/* theme "3d", "3d-dark" */
+.mCS-3d.mCSB_scrollTools_vertical .mCSB_dragger,
+.mCS-3d-dark.mCSB_scrollTools_vertical .mCSB_dragger {
+    height: 70px;
+}
+.mCSB_inside + .mCS-3d-thick.mCSB_scrollTools_vertical,
+.mCSB_inside + .mCS-3d-thick-dark.mCSB_scrollTools_vertical {
+    right: 1px;
+}
+
+.mCS-3d-thick.mCSB_scrollTools_vertical,
+.mCS-3d-thick-dark.mCSB_scrollTools_vertical {
+    box-shadow: inset 1px 0 1px rgba(0, 0, 0, 0.1), inset 0 0 14px rgba(0, 0, 0, 0.5);
+}
+/* theme: "minimal", "minimal-dark" */
+.mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical,
+.mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+    right: 0;
+    margin: 12px 0;
+}
+/* RTL direction/left-side scrollbar */
+.mCS-dir-rtl > .mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical,
+.mCS-dir-rtl > .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+    left: 0;
+    right: auto;
+}
+.mCS-minimal.mCSB_scrollTools_vertical .mCSB_dragger,
+.mCS-minimal-dark.mCSB_scrollTools_vertical .mCSB_dragger {
+    height: 50px;
+}
+.mCS-light-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-light-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+    width: 12px;
+}
+.sel_seat .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer .mCSB_draggerRail {
+    width: 6px !important;
+}
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+    width: 12px;
+    /* auto-expanded scrollbar */
+}
+
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+    width: 8px;
+    /* auto-expanded scrollbar */
+}
+.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_vertical {
+    bottom: 20px;
+}
+/* non-visible horizontal scrollbar */
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden + .mCSB_scrollTools.mCSB_scrollTools_vertical {
+    bottom: 0;
+}
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail,
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail {
+    -webkit-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s, margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s, margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s, opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s, margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s, margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s, opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s, margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s, margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s, opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s, margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s, margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s, opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+    width: 16px;
+    /* auto-expanded scrollbar */
+    height: 16px;
+    margin: -1px 0;
+}
+
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+    width: 4px;
+    /* auto-expanded scrollbar */
+}

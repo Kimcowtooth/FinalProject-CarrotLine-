@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="commonMapper">
+    
+    <resultMap type="booking" id="bookingResultSet">
+        <result column="BOOKING_NO" property="bookingNo"/>
+        <result column="DEPARTURE_DATE" property="departureDate"/>
+        <result column="DEPARTURE_AIRPORT" property="departureCode"/>
+        <result column="DEP_CITY" property="depCity"/>
+        <result column="ARRIVAL_AIRPORT" property="arrivalCode"/>
+        <result column="ARR_CITY" property="arrCity"/>
+        <result column="DEPARTURE_TIME" property="depTime"/>
+        <result column="ARRIVAL_TIME" property="arrTime"/>
+        <result column="CNT" property="totalCnt"/>
+        <result column="BOOKING_STATE" property="state"/>
+        <result column="PAYMENT_METHOD" property="paymentMethod"/>
+        <result column="CARD_NO" property="cardNo"/>
+        <result column="APPROVAL_NO" property="approvalNo"/>
+        <result column="PAYMENT_DATE" property="paymentDate"/>
+        <result column="USE_MILEAGE" property="useMileage"/>
+        <result column="CARD_PAYMENT" property="cardPayment"/>
+        <result column="FLIGHT_NAME" property="flightName"/>
+        <result column="FLIGHT_TIME" property="flightTime"/>
+        <result column="PLANE_NAME" property="planeName"/>
+     </resultMap>
+ 
+     <select id="selectMyBookingList" parameterType="booking" resultMap="bookingResultSet">
+        SELECT  BOOKING_NO,                  
+                DEPARTURE_DATE,             
+                DEPARTURE_AIRPORT,                     
+                CITY AS "DEP_CITY",                              
+                ARRIVAL_AIRPORT,           
+                (SELECT CITY                
+                FROM AIRPORT
+                WHERE ARRIVAL_AIRPORT = AIRPORT_CODE ) "ARR_CITY",
+                DEPARTURE_TIME,             
+                ARRIVAL_TIME,               
+                (ADULT+CHILD+BABY) "CNT",   
+                BOOKING_STATE       
+        FROM BOOKING 
+        LEFT JOIN SCHEDULE S USING (SCHEDULE_NO)
+        LEFT JOIN MEMBER USING (USER_NO)
+        LEFT JOIN ROUTE R USING (ROUTE_NO)
+        LEFT JOIN AIRPORT ON (DEPARTURE_AIRPORT = AIRPORT_CODE)
+        WHERE USER_NO = #{userNo}
+     </select>
+     
+     <select id="selectBooking" parameterType="Map" resultMap="bookingResultSet">
+        SELECT  BOOKING_NO,                  
+                DEPARTURE_DATE,             
+                DEPARTURE_AIRPORT,                     
+                CITY AS "DEP_CITY",                              
+                ARRIVAL_AIRPORT,           
+                (SELECT CITY                
+                FROM AIRPORT
+                WHERE ARRIVAL_AIRPORT = AIRPORT_CODE ) "ARR_CITY",
+                DEPARTURE_TIME,             
+                ARRIVAL_TIME,               
+                (ADULT+CHILD+BABY) "CNT",   
+                BOOKING_STATE,
+                PAYMENT_METHOD,
+                CARD_NO,
+                APPROVAL_NO,
+                PAYMENT_DATE,  
+                USE_MILEAGE,
+                CARD_PAYMENT,
+                FLIGHT_NAME,
+                FLIGHT_TIME,
+                PLANE_NAME             
+        FROM BOOKING 
+        LEFT JOIN SALES USING (BOOKING_NO)
+        LEFT JOIN SCHEDULE S USING (SCHEDULE_NO)
+        JOIN AIRPLANE USING (PLANE_NO)
+        LEFT JOIN MEMBER USING (USER_NO)
+        LEFT JOIN ROUTE R USING (ROUTE_NO)
+        LEFT JOIN AIRPORT ON (DEPARTURE_AIRPORT = AIRPORT_CODE)
+        WHERE USER_NO = #{userNo}
+        AND BOOKING_NO = #{bookingNo}
+     </select>
+ 	
+ 	<resultMap type="ticket" id="detailResultSet">
+        <result column="BOOKING_NO" property="bookingNo"/>
+        <result column="TICKET_NO" property="ticketNo"/>
+        <result column="SEAT_CODE" property="seatCode"/>
+		<result column="ENG_NAME" property="engName"/>
+		<result column="ADULT" property="adult"/>
+		<result column="CHILD" property="child"/>
+		<result column="BABY" property="baby"/>
+		<result column="GENDER" property="gender"/>
+		<result column="NATIONALITY" property="nationality"/>
+		<result column="BIRTHDAY" property="birthday"/>
+		<result column="PASSPORT_NO" property="passportNo"/>
+		<result column="ROUTE_COST" property="routeCost"/>
+		<result column="SCHEDULE_COST" property="scheduleCost"/>
+		<result column="PLANE_SIZE_COST" property="planeSizeCost"/>
+		<result column="CB" property="cb"/>
+		<result column="CB_PRICE" property="cbPrice"/>
+		<result column="FM" property="fm"/>
+		<result column="FM_PRICE" property="fmPrice"/>
+		<result column="TI" property="ti"/>
+		<result column="TI_PRICE" property="tiPrice"/>
+		<result column="SEAT_COST" property="seatCost"/>
+     </resultMap>
+ 	
+ 	<select id="selectMyBookingDetailY" resultMap="detailResultSet">
+ 		SELECT BOOKING_NO,		  
+		        TICKET_NO,
+		        T.SEAT_CODE,
+		        S.SEAT_CODE,
+		        SEAT_GRADE,
+		        ENG_NAME,
+		        ADULT,
+		        CHILD,
+		        BABY,
+		        GENDER,
+		        NATIONALITY,
+		        BIRTHDAY,
+		        PASSPORT_NO,
+		        ROUTE_COST,
+		        SCHEDULE_COST,
+		        PLANE_SIZE_COST,
+		        CB,
+		        CB_PRICE,
+		        FM,
+		        FM_PRICE,
+		        TI,        
+		        TI_PRICE,
+		        CASE WHEN SEAT_GRADE = 'STANDARD_GRADE' THEN STANDARD_COST
+		            WHEN SEAT_GRADE = 'FRONT_GRADE' THEN FRONT_COST
+		            WHEN SEAT_GRADE = 'SEMIPREMIUM_GRADE' THEN SEMIPREMIUM_COST
+		            WHEN SEAT_GRADE = 'PREMIUM_GRADE' THEN PREMIUM_COST
+		        END AS "SEAT_COST"
+		FROM TICKET T
+		LEFT JOIN BOOKING USING (BOOKING_NO)
+		LEFT JOIN SCHEDULE USING (SCHEDULE_NO) 
+		LEFT JOIN AIRPLANE USING (PLANE_NO)
+		LEFT JOIN ROUTE USING (ROUTE_NO)
+		LEFT JOIN SEAT S USING (SCHEDULE_NO)
+		LEFT JOIN AIRPORT ON (DEPARTURE_AIRPORT = AIRPORT_CODE)
+		LEFT JOIN PASSENGER USING (TICKET_NO)
+		LEFT JOIN ADDITIONAL_SERVICES USING (TICKET_NO)
+		LEFT JOIN CHECKED_BAGGAGE USING (CB_CODE)
+		LEFT JOIN FLIGHT_MEALS USING (FM_CODE)
+		LEFT JOIN TRAVEL_INSURANCE USING (TI_CODE)
+		WHERE BOOKING_NO = #{bookingNo}
+		AND T.SEAT_CODE = S.SEAT_CODE
+ 	</select>
+ 	
+ 	<select id="selectMyBookingDetailN" resultMap="detailResultSet">
+ 		SELECT BOOKING_NO,		  
+		        TICKET_NO,
+		        T.SEAT_CODE,
+		        ENG_NAME,
+		        ADULT,
+		        CHILD,
+		        BABY,
+		        GENDER,
+		        NATIONALITY,
+		        BIRTHDAY,
+		        PASSPORT_NO,
+		        ROUTE_COST,
+		        SCHEDULE_COST,
+		        PLANE_SIZE_COST,
+		        CB,
+		        CB_PRICE,
+		        FM,
+		        FM_PRICE,
+		        TI,        
+		        TI_PRICE,
+		        0 AS "SEAT_COST"
+		FROM TICKET T
+		LEFT JOIN BOOKING USING (BOOKING_NO)
+		LEFT JOIN SCHEDULE USING (SCHEDULE_NO) 
+		LEFT JOIN AIRPLANE USING (PLANE_NO)
+		LEFT JOIN ROUTE USING (ROUTE_NO)
+		LEFT JOIN AIRPORT ON (DEPARTURE_AIRPORT = AIRPORT_CODE)
+		LEFT JOIN PASSENGER USING (TICKET_NO)
+		LEFT JOIN ADDITIONAL_SERVICES USING (TICKET_NO)
+		LEFT JOIN CHECKED_BAGGAGE USING (CB_CODE)
+		LEFT JOIN FLIGHT_MEALS USING (FM_CODE)
+		LEFT JOIN TRAVEL_INSURANCE USING (TI_CODE)
+		WHERE BOOKING_NO = #{bookingNo}
+		AND T.SEAT_CODE IS NULL
+ 	</select>
+ </mapper>

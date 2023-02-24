@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+.contain_wrap{
+	width: 1300px;
+	height: 250px;
+	border: 1px solid #d5d5d5;
+	background-color: #fcfcfc;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.contain_wrap2{
+	width: 1300px;
+	height: 250px;
+	border: 1px solid #d5d5d5;
+	background-color: #fcfcfc;
+	margin: 0 auto;
+	padding-top: 25px;
+	margin-top: 50px;
+}
+
+
+.information{
+	width: 80px;
+	height: 35px;
+	background-color: silver;
+	margin-right: 20px;	
+	display: inline-block;
+}
+
+.information_info{
+	width: 960px;
+	height: 35px;
+	background-color: blue;
+	display: inline-block;
+}
+
+.information_info_id{
+	width: 200px;
+	height: 35px;
+}
+.modal-content{
+	width: 700px;
+}
+
+.modal_wrap{
+	width: 600px;
+	height: 700px;
+	position: relative;
+	overflow: hidden;
+}
+
+.limo_wrap{
+	width: 430px;
+	height: 700px;
+	background-image: url("../../images/limoPic/bus.png");
+	background-size: cover;
+	margin: 0 auto;
+	overflow: hidden;
+	border-right: solid 2px;
+	border-right: 2px solid #e6e6e6;
+	margin-left: -30px;
+	position: absolute;
+}
+
+.limo_seat{
+	width: 250px;
+	height: 500px;
+	margin-top: 125px;
+	margin-left: 115px;
+}
+.limo{
+	background-image: url("../../images/limoPic/seatBefore.png");
+	width: 40px;
+	height: 40px;
+	background-size: cover;
+}
+
+.modal-body{
+	width: 500px;
+	height: 750px;
+}
+
+.booked{
+	background-image: url("../../images/limoPic/seatBooked.png");
+}
+
+.select_limoDate{
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+	margin-top: 30px;
+	border-bottom: 2px solid #e6e6e6;
+}
+
+.select_depLoc{
+	margin-top: 15px;
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+	border-bottom: 2px solid #e6e6e6;
+}
+
+.select_arrLoc{
+	margin-top: 15px;
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+	border-bottom: 2px solid #e6e6e6;
+}
+.select_person{
+	margin-top: 20px;
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+	border-bottom: 2px solid #e6e6e6;
+}
+.select_price{
+	margin-top: 20px;
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+	border-bottom: 2px solid #e6e6e6;
+}
+.select_limoTime{
+	margin-top: 20px;
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+	border-bottom: 2px solid #e6e6e6;
+}
+
+.select_seat{
+	margin-top: 20px;
+	width: 240px;
+	height: 80px;
+	margin-left: 400px;
+}
+input, select{
+	height: 50px;
+}
+.checkbox{
+	width: 20px;
+	top: 18px;
+}
+
+.add{
+	background-color: #c60b15;
+	width: 100px;
+	height: 50px;
+	border-radius: 10px;
+	color: white;
+}
+.del{
+	background-color: #cc484f;
+	width: 100px;
+	height: 50px;
+	border-radius: 10px;
+	color: white;
+}
+.gobooks{
+	background-color: white;
+	border: 2px solid #c60b15;
+	width: 100px;
+	height: 50px;
+	border-radius: 10px;
+	color: #c60b15;
+}
+
+.gobooks2{
+	background-color: white;
+	border: 2px solid #c60b15;
+	width: 100px;
+	height: 50px;
+	border-radius: 10px;
+	color: #c60b15;
+}
+.select, .select2{
+	height: 50px;
+}
